@@ -26,6 +26,23 @@ $scope.login = function() {
   );
 }
 })
+.controller('CreateCtrl', function($scope, $http) {
+  // create a blank object to handle form data.
+	$scope.party = {};
+  // calling our submit function.
+    $scope.submitForm = function() {
+			console.log($scope.party.title);
+		$scope.events = {
+			"event": {"title": $scope.party.title, "description": $scope.party.description}
+		};
+
+		$http({
+		  method  : 'POST',
+		  url     : 'http://localhost:3000/events',
+		  data    : $scope.events //forms user object
+		 })
+    };
+})
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.

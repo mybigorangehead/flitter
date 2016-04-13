@@ -49,6 +49,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     }
   })
+  .state('tab.createevent', {
+    url: '/createevent',
+    views: {
+      'tab-createevent': {
+        templateUrl: 'templates/tab-createevent.html',
+        controller: 'CreateCtrl'
+      }
+    }
+  })
 
   .state('tab.chats', {
       url: '/chats',
@@ -84,7 +93,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   });
 
   // if none of the above states are matched, use this as the fallback
- $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/login');
   $httpProvider.defaults.withCredentials = true;
 
 });
